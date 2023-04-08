@@ -14,7 +14,7 @@ object UtilSharedPrefs {
     var user:String?
     get() = sharedPrefs?.getString(WEATHER_COLD,null)
     set(value) {
-        sharedPrefs?.edit()?.putString(WEATHER_COLD,value)
+        sharedPrefs?.edit()?.putString(WEATHER_COLD,value)?.apply()
     }
 
 }

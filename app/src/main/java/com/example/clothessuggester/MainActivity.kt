@@ -3,9 +3,11 @@ package com.example.clothessuggester
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.widget.LinearLayoutCompat
 import com.example.clothessuggester.data.api.WeatherStatusInfo
 import com.example.clothessuggester.databinding.ActivityMainBinding
 import com.example.clothessuggester.model.domain.WeatherStatus
+import com.example.clothessuggester.util.SetUpBottomSheet
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.gson.Gson
 import okhttp3.*
@@ -18,8 +20,7 @@ class MainActivity : AppCompatActivity(),Callback{
         binding= ActivityMainBinding.inflate(layoutInflater)
             val weather=WeatherStatusInfo()
             weather.getDegree(this)
-        val bottomSheetBehavior = BottomSheetBehavior.from(binding.sheet)
-        bottomSheetBehavior.peekHeight = 220
+        SetUpBottomSheet.prepare(binding.sheet)
         setContentView(binding.root)
     }
 
