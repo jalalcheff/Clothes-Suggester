@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Clothes Suggester</string>
+    <string name="hi_good_morning">hi, good morning</string>
+    <string name="lovely_trquaz_shirt">lovely trquaz shirt</string>
 </resources>
