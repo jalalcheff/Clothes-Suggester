@@ -22,7 +22,6 @@
             android:id="@+id/upper_clothes"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/blue_t_shirt"
             android:layout_marginTop="36dp"
             app:shapeAppearanceOverlay="@style/suggested_card"
             app:strokeColor="@color/black"
@@ -56,7 +55,6 @@ this is good choice for you have a nice day"
         android:id="@+id/lower_clothes"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/jeans"
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="8dp"
         app:shapeAppearanceOverlay="@style/suggested_card"
@@ -88,20 +86,21 @@ this is good choice for you have a nice day"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lower_clothes_title"
         />
+
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/shoe"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/trainers"
         android:layout_marginTop="8dp"
-        app:shapeAppearanceOverlay="@style/suggested_card"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp"
+        app:layout_constraintEnd_toEndOf="@id/lower_clothes"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/lower_clothes"
         app:layout_constraintTop_toBottomOf="@id/lower_clothes"
-        app:layout_constraintEnd_toEndOf="@id/lower_clothes"
+        app:shapeAppearanceOverlay="@style/suggested_card"
+        app:strokeColor="@color/black"
 
-        />
+        app:strokeWidth="1dp" />
+
     <TextView
         android:id="@+id/shoe_title"
         android:layout_width="wrap_content"

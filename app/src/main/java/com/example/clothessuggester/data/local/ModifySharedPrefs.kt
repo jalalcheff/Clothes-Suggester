@@ -1,13 +1,47 @@
 package com.example.clothessuggester.data.local
 
+import android.util.Log
+import com.example.clothessuggester.R
+import com.example.clothessuggester.model.DataManager
+import com.example.clothessuggester.util.ListOfClothes
 import com.example.clothessuggester.util.UtilSharedPrefs
 
 class ModifySharedPrefs {
-    private fun loadData():String {
-        return UtilSharedPrefs.user.toString()
+     fun loadData():MutableSet<String>? {
+        return UtilSharedPrefs.user
     }
 
-    private fun saveData(data:String) {
-        UtilSharedPrefs.user=data
+     fun saveData(data:Double?) {
+         var shirt:String?=null
+         var jeanz:String?=null
+         var shoe:String?=null
+         val summerClothes=ListOfClothes.getHotWeatherClothes().random()
+         val winterClothes=ListOfClothes.getColdWeatherClothes().random()
+         data?.let {
+             when(it) {
+                 in 21.0..70.0 ->{
+                     shirt=summerClothes.shirt.random()
+                     jeanz=summerClothes.jeans.random()
+                     shoe=summerClothes.shoe
+                 }
+                 in 0.0..20.0->{
+                     shirt=winterClothes.shirt.random()
+                     jeanz=winterClothes.jeans.random()
+                     shoe=winterClothes.shoe
+
+                 }
+                 else ->{
+                    throw java.lang.Exception("no such value")
+                 }
+             }
+         }
+
+         val setOfClothes= mutableSetOf<String>()
+         setOfClothes.add(shirt!!)
+         setOfClothes.add(jeanz!!)
+         setOfClothes.add(shoe!!)
+        UtilSharedPrefs.user=setOfClothes
+
+
     }
 }
