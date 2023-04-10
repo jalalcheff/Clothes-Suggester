@@ -1,7 +1,5 @@
-package com.example.clothessuggester.data.local
+package com.example.clothessuggester.model.domain.local
 
-import android.util.Log
-import com.example.clothessuggester.R
 import com.example.clothessuggester.model.DataManager
 import com.example.clothessuggester.util.ListOfClothes
 import com.example.clothessuggester.util.UtilSharedPrefs
@@ -44,4 +42,19 @@ class ModifySharedPrefs {
 
 
     }
+
+    fun getDataFromSharedPrefs():MutableList<String>
+    {
+        val imagesFromLocal= mutableListOf<String>()
+        ModifySharedPrefs().loadData()?.forEach {
+            imagesFromLocal.add(it)
+        }
+
+        return imagesFromLocal
+    }
+   /* fun setDataIntoSharedPrefs()
+    {
+        val sharedPrefs= ModifySharedPrefs()
+        sharedPrefs.saveData(DataManager.weather?.main?.temp)
+    }*/
 }
