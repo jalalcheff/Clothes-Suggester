@@ -10,5 +10,9 @@ class MainPresenter {
         WeatherStatusInfo().getDegree {weatherStatus ->
             itemperautre.onSuccessWeatherTempurutre(weatherStatus.main.temp)
         }
+        ModifySharedPrefs().getDataFromSharedPrefs {clothesImages->
+            itemperautre.onSuccessImageDrawable(clothesImages)
+        }
+
     }
 }

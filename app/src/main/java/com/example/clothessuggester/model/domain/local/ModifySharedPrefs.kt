@@ -1,6 +1,5 @@
 package com.example.clothessuggester.model.domain.local
 
-import com.example.clothessuggester.model.DataManager
 import com.example.clothessuggester.util.ListOfClothes
 import com.example.clothessuggester.util.UtilSharedPrefs
 
@@ -43,14 +42,14 @@ class ModifySharedPrefs {
 
     }
 
-    fun getDataFromSharedPrefs():MutableList<String>
+    fun getDataFromSharedPrefs(showImagePresnter:(MutableList<String>)->Unit)
     {
         val imagesFromLocal= mutableListOf<String>()
         ModifySharedPrefs().loadData()?.forEach {
             imagesFromLocal.add(it)
         }
 
-        return imagesFromLocal
+        showImagePresnter(imagesFromLocal)
     }
    /* fun setDataIntoSharedPrefs()
     {

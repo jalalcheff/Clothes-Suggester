@@ -1,17 +1,13 @@
 package com.example.clothessuggester.model.domain.api
 
-import android.util.Log
-import com.example.clothessuggester.model.DataManager
 import com.example.clothessuggester.model.domain.WeatherStatus
 import com.example.clothessuggester.model.domain.WeatherStatusConnection
-import com.example.clothessuggester.model.domain.local.ModifySharedPrefs
 import com.google.gson.Gson
 import okhttp3.*
 import java.io.IOException
 
  class WeatherStatusInfo:WeatherStatusConnection {
     private val client= OkHttpClient()
-     private var weather:WeatherStatus?=null
     override fun getDegree(onGetCurrentResponse:(WeatherStatus)->Unit) {
         val url= HttpUrl.Builder().
         scheme("https").
@@ -26,7 +22,6 @@ import java.io.IOException
             override fun onFailure(call: Call, e: IOException) {
                 throw Exception(e.message)
             }
-
             override fun onResponse(call: Call, response: Response) {
                 val result= Gson().fromJson(response.body?.string().toString(), WeatherStatus::class.java)
                 onGetCurrentResponse(result)
@@ -34,12 +29,5 @@ import java.io.IOException
 
         })
     }
-     fun getWeatherTemperature():Double
-     {
-         weather?.let {
-             return it.main.temp
-         }?: throw Exception(NullPointerException().message)
-     }
-
 
 }

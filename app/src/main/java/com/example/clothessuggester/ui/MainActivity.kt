@@ -5,16 +5,10 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.example.clothessuggester.R
-import com.example.clothessuggester.model.domain.api.WeatherStatusInfo
 import com.example.clothessuggester.databinding.ActivityMainBinding
-import com.example.clothessuggester.model.DataManager
-import com.example.clothessuggester.model.domain.WeatherStatus
 import com.example.clothessuggester.presnter.MainPresenter
 import com.example.clothessuggester.util.SetUpBottomSheet
 import com.example.clothessuggester.util.UtilSharedPrefs
-import com.google.gson.Gson
-import okhttp3.*
-import java.io.IOException
 
 class MainActivity : AppCompatActivity(),IMainView{
      private lateinit var binding:ActivityMainBinding
@@ -32,9 +26,11 @@ class MainActivity : AppCompatActivity(),IMainView{
 
 
     private fun showOnUi() {
+
         val presenter=MainPresenter()
-        presenter.presentData()
         presenter.itemperautre=this
+        presenter.presentData()
+
     }
 
     override fun onSuccessWeatherTempurutre(tempruture: Double) {
