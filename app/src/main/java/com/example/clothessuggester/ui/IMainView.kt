@@ -8,4 +8,5 @@ interface IMainView {
     fun onSuccessCityName(cityName: String)
     fun onFailureCityName(e: IOException)
     fun onSuccessImageDrawable(imageDrawables: List<String>)
+    fun onSuggestNewClothes(imageDrawables: List<String>)
 }

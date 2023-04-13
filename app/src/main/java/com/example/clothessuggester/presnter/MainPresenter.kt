@@ -29,4 +29,11 @@ class MainPresenter {
         }
 
     }
+    fun rePresentData()
+    {
+        ModifySharedPrefs().saveData(tempreature)
+        ModifySharedPrefs().getDataFromSharedPrefs { clothesImages->
+            iMainView.onSuccessImageDrawable(clothesImages)
+        }
+    }
 }

@@ -27,10 +27,9 @@ class MainActivity : AppCompatActivity(), IMainView {
         runOnUiThread {
             showOnUi()
         }
-      /*  binding.sheet[0].findViewById<Button>(R.id.suggest_button).setOnClickListener {it as Button
-            Toast.makeText(this,"fail!!",Toast.LENGTH_LONG).show()
-            showOnUi()
-        }*/
+        binding.sheet[0].findViewById<Button>(R.id.suggest_button).setOnClickListener {it as Button
+            presenter.rePresentData()
+        }
         setContentView(binding.root)
     }
 
@@ -56,12 +55,28 @@ class MainActivity : AppCompatActivity(), IMainView {
     }
 
     override fun onSuccessImageDrawable(imageDrawables: List<String>) {
-        val upperClothes: ImageView = binding.sheet.findViewById(R.id.lower_clothes)
-        upperClothes.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[0].toInt()))
+      bindData(imageDrawables)
+    }
+
+    override fun onSuggestNewClothes(imageDrawables: List<String>) {
+      bindData(imageDrawables)
+    }
+    private fun bindData(imageDrawables: List<String>)
+    {
+        binding.sheet.let {
+            val upperClothes: ImageView=it.findViewById(R.id.lower_clothes)
+            val lowerClothes: ImageView=it.findViewById(R.id.upper_clothes)
+            val shoe: ImageView=it.findViewById(R.id.shoe)
+            upperClothes.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[0].toInt()))
+            lowerClothes.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[1].toInt()))
+            shoe.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[2].toInt()))
+        }
+    /*    val upperClothes: ImageView = binding.sheet.findViewById(R.id.lower_clothes)
         val lowerClothes: ImageView = binding.sheet.findViewById(R.id.upper_clothes)
+        val shoe: ImageView = binding.sheet.findViewById(R.id.shoe)*/
+      /*  upperClothes.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[0].toInt()))
         lowerClothes.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[1].toInt()))
-        val shoe: ImageView = binding.sheet.findViewById(R.id.shoe)
-        shoe.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[2].toInt()))
+        shoe.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[2].toInt()))*/
     }
 
 }
