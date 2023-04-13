@@ -122,6 +122,18 @@ this is good choice for you have a nice day"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/shoe_title"
         />
+    <Button
+        android:id="@+id/suggest_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="#6C33D3"
+        android:text="suggest"
+        android:background="@drawable/raduis_bottom_sheet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
 
 

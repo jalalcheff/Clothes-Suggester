@@ -5,13 +5,27 @@ import com.example.clothessuggester.model.domain.local.ModifySharedPrefs
 import com.example.clothessuggester.ui.IMainView
 
 class MainPresenter {
-    lateinit var itemperautre:IMainView
-    fun presentData(){
-        WeatherStatusInfo().getDegree {weatherStatus ->
-            itemperautre.onSuccessWeatherTempurutre(weatherStatus.main.temp)
-        }
-        ModifySharedPrefs().getDataFromSharedPrefs {clothesImages->
-            itemperautre.onSuccessImageDrawable(clothesImages)
+    lateinit var iMainView: IMainView
+    var tempreature:Double?=null
+    fun presentData() {
+       /* WeatherStatusInfo().getDegree { weatherStatus ->
+            itemperautre.onSuccessWeatherTemperature(weatherStatus.main.temp)
+        }*/
+        WeatherStatusInfo().getWeatherStatusResponse(
+            {weatherStatus->
+                tempreature=weatherStatus.main.temp
+                iMainView.onSuccessWeatherTemperature(weatherStatus.main.temp)
+                iMainView.onSuccessCityName(weatherStatus.name)
+            }
+        ,
+            {e->
+                iMainView.onFailureWeatherTemperature(e)
+                iMainView.onFailureCityName(e)
+            }
+        )
+
+        ModifySharedPrefs().getDataFromSharedPrefs { clothesImages ->
+            iMainView.onSuccessImageDrawable(clothesImages)
         }
 
     }

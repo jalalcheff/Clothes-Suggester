@@ -1,7 +1,8 @@
 package com.example.clothessuggester.model.domain
 
-import okhttp3.Callback
+import okio.IOException
 
 interface WeatherStatusConnection {
-    fun getDegree(onGetCurrentResponse:(WeatherStatus)->Unit)
+    fun getWeatherStatusResponse(onGetCurrentWeatherResponse: (WeatherStatus) -> Unit,
+                                 onGetWeatherFailure:(IOException)->Unit)
 }
