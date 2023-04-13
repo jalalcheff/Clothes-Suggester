@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), IMainView {
     }
 
     override fun onSuccessCityName(cityName: String) {
-        binding.cityName.text = cityName
+        runOnUiThread { binding.cityName.text = cityName }
     }
 
     override fun onFailureCityName(e: IOException) {
@@ -80,14 +80,13 @@ class MainActivity : AppCompatActivity(), IMainView {
                     imageDrawables[1].toInt()
                 )
             )
-            shoe.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[2].toInt()))
+            shoe.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    imageDrawables[2].toInt()
+                )
+            )
         }
-        /*    val upperClothes: ImageView = binding.sheet.findViewById(R.id.lower_clothes)
-            val lowerClothes: ImageView = binding.sheet.findViewById(R.id.upper_clothes)
-            val shoe: ImageView = binding.sheet.findViewById(R.id.shoe)*/
-        /*  upperClothes.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[0].toInt()))
-          lowerClothes.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[1].toInt()))
-          shoe.setImageDrawable(ContextCompat.getDrawable(this, imageDrawables[2].toInt()))*/
     }
 
 }

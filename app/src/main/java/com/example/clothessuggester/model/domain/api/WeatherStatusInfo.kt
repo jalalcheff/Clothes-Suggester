@@ -36,6 +36,7 @@ class WeatherStatusInfo : WeatherStatusConnection {
 
         })
     }
+
     companion object {
         const val HTTPS_SCHEME = "https"
         const val HOST_NAME = "api.openweathermap.org"

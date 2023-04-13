@@ -46,7 +46,7 @@ class ModifySharedPrefs {
     private fun bindClothesDependOnTemperature(season: Clothes) {
         shirt = season.shirt.random()
         jeanz = season.jeans.random()
-        shoe = season.shoe
+        shoe = season.shoe.random()
     }
 
     companion object {

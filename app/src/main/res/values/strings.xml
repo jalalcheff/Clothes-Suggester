@@ -2,4 +2,8 @@
     <string name="app_name">Clothes Suggester</string>
     <string name="hi_good_morning">hi, good morning</string>
     <string name="lovely_trquaz_shirt">lovely trquaz shirt</string>
+    <string name="clothes_suggest_string">hi,we hope you have a nice day we suggest this for you we hope this is good choice for you have a nice day</string>
+    <string name="suggest">suggest</string>
+    <string name="lower_clothes">lower clothes</string>
+    <string name="suggested_clothes">suggested clothes</string>
 </resources>
