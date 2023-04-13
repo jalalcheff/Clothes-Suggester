@@ -6,7 +6,7 @@ import com.example.clothessuggester.ui.IMainView
 
 class MainPresenter {
     lateinit var iMainView: IMainView
-    var tempreature:Double?=null
+    private var tempreature:Double?=null
     fun presentData() {
        /* WeatherStatusInfo().getDegree { weatherStatus ->
             itemperautre.onSuccessWeatherTemperature(weatherStatus.main.temp)

@@ -1,36 +1,28 @@
 package com.example.clothessuggester.model.domain.local
 
 import android.util.Log
+import com.example.clothessuggester.model.domain.Clothes
 import com.example.clothessuggester.util.ListOfClothes
 import com.example.clothessuggester.util.UtilSharedPrefs
 
 class ModifySharedPrefs {
+    private var shirt: String? = null
+    private var jeanz: String? = null
+    private var shoe: String? = null
     private fun loadData(): MutableSet<String>? {
         return UtilSharedPrefs.user
     }
 
     fun saveData(data: Double?) {
-        var shirt: String? = null
-        var jeanz: String? = null
-        var shoe: String? = null
+
+
         val summerClothes = ListOfClothes.getHotWeatherClothes().random()
         val winterClothes = ListOfClothes.getColdWeatherClothes().random()
-        data?.let {
-            when (it) {
-                in 21.0..70.0 -> {
-                    shirt = summerClothes.shirt.random()
-                    jeanz = summerClothes.jeans.random()
-                    shoe = summerClothes.shoe
-                }
-                in 0.0..20.0 -> {
-                    shirt = winterClothes.shirt.random()
-                    jeanz = winterClothes.jeans.random()
-                    shoe = winterClothes.shoe
-
-                }
-                else -> {
-                    throw java.lang.Exception("no such value")
-                }
+        data?.let { temperature ->
+            if (temperature > TEMPERATURE_THRESHOLD) {
+                bindClothesDependOnTemperature(summerClothes)
+            } else {
+                bindClothesDependOnTemperature(winterClothes)
             }
         }
 
@@ -38,7 +30,7 @@ class ModifySharedPrefs {
         setOfClothes.add(shirt!!)
         setOfClothes.add(jeanz!!)
         setOfClothes.add(shoe!!)
-        Log.i("meme",setOfClothes.toString())
+        Log.i("meme", setOfClothes.toString())
         UtilSharedPrefs.user = setOfClothes
     }
 
@@ -49,6 +41,16 @@ class ModifySharedPrefs {
         }
 
         showImagePresenter(imagesFromLocal)
+    }
+
+    private fun bindClothesDependOnTemperature(season: Clothes) {
+        shirt = season.shirt.random()
+        jeanz = season.jeans.random()
+        shoe = season.shoe
+    }
+
+    companion object {
+        const val TEMPERATURE_THRESHOLD = 10.0
     }
 
 }

@@ -13,10 +13,14 @@ class WeatherStatusInfo : WeatherStatusConnection {
         onGetCurrentWeatherResponse: (WeatherStatus) -> Unit,
         onGetWeatherFailure: (IOException) -> Unit,
     ) {
-        val url = HttpUrl.Builder().scheme("https").host("api.openweathermap.org")
-            .addPathSegment("data/2.5/weather").addQueryParameter("lat", "37.7749")
-            .addQueryParameter("lon", "-122.4194").addQueryParameter("units", "metric")
-            .addQueryParameter("appid", "5591e9a22ae1fe0c591a03b968c6e3ff").build()
+        val url = HttpUrl.Builder()
+            .scheme(HTTPS_SCHEME)
+            .host(HOST_NAME)
+            .addPathSegment(PATH_SEGMENT)
+            .addQueryParameter("lat", LATITUDE)
+            .addQueryParameter("lon", LONGITUDE)
+            .addQueryParameter("units", UNIT)
+            .addQueryParameter("appid", APPID).build()
         val request = Request.Builder().url(url).build()
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
@@ -32,6 +36,14 @@ class WeatherStatusInfo : WeatherStatusConnection {
 
         })
     }
-
+    companion object {
+        const val HTTPS_SCHEME = "https"
+        const val HOST_NAME = "api.openweathermap.org"
+        const val PATH_SEGMENT = "data/2.5/weather"
+        const val LONGITUDE = "44.482458267104164"
+        const val LATITUDE = "33.397001631478176"
+        const val UNIT = "metric"
+        const val APPID = "5591e9a22ae1fe0c591a03b968c6e3ff"
+    }
 
 }
