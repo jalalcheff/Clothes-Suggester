@@ -8,7 +8,8 @@
 <TextView
     android:id="@+id/header_title"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="36dp"
+    android:textColor="@color/bottom_sheet_text"
     android:text="@string/suggested_clothes"
     android:textSize="24sp"
     android:drawablePadding="8dp"
@@ -23,8 +24,7 @@
             android:layout_height="150dp"
             android:layout_marginTop="36dp"
             app:shapeAppearanceOverlay="@style/suggested_card"
-            app:strokeColor="@color/black"
-            app:strokeWidth="1dp"
+            android:background="@color/bottom_sheet_text"
             app:layout_constraintTop_toBottomOf="@id/header_title"
             app:layout_constraintEnd_toEndOf="parent"
 
@@ -34,8 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/poppins_medium"
         android:text="first suggestion"
+        android:textColor="@color/bottom_sheet_text"
         app:layout_constraintTop_toTopOf="@id/upper_clothes"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -45,6 +46,8 @@
         android:layout_height="wrap_content"
         android:text="@string/clothes_suggest_string"
         android:lines="7"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/bottom_sheet_text"
         app:layout_constraintEnd_toStartOf="@id/upper_clothes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/upper_clothes_title"
@@ -56,8 +59,7 @@
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="8dp"
         app:shapeAppearanceOverlay="@style/suggested_card"
-        app:strokeColor="@color/black"
-        app:strokeWidth="1dp"
+        android:background="@color/bottom_sheet_text"
         app:layout_constraintEnd_toEndOf="@id/upper_clothes"
         app:layout_constraintStart_toStartOf="@id/upper_clothes"
         app:layout_constraintTop_toBottomOf="@id/upper_clothes"
@@ -68,8 +70,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/poppins_medium"
         android:text="second suggestion"
+        android:textColor="@color/bottom_sheet_text"
         app:layout_constraintTop_toTopOf="@id/lower_clothes"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -79,6 +82,8 @@
         android:layout_height="wrap_content"
         android:text="@string/clothes_suggest_string"
         android:lines="7"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/bottom_sheet_text"
         app:layout_constraintEnd_toStartOf="@id/lower_clothes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lower_clothes_title"
@@ -94,17 +99,17 @@
         app:layout_constraintStart_toStartOf="@id/lower_clothes"
         app:layout_constraintTop_toBottomOf="@id/lower_clothes"
         app:shapeAppearanceOverlay="@style/suggested_card"
-        app:strokeColor="@color/black"
-
-        app:strokeWidth="1dp" />
+        android:background="@color/bottom_sheet_text"
+ />
 
     <TextView
         android:id="@+id/shoe_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/poppins_medium"
         android:text="third suggestion"
+        android:textColor="@color/bottom_sheet_text"
         app:layout_constraintTop_toTopOf="@id/shoe"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -114,21 +119,25 @@
         android:layout_height="wrap_content"
         android:text="@string/clothes_suggest_string"
         android:lines="7"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/bottom_sheet_text"
         app:layout_constraintEnd_toStartOf="@id/shoe"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/shoe_title"
         />
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/suggest_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#6C33D3"
+        android:paddingHorizontal="64dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/temp"
         android:text="@string/suggest"
-        android:background="@drawable/raduis_bottom_sheet"
+        android:background="@drawable/suggested_clothes_card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shoe"
         />
 
 

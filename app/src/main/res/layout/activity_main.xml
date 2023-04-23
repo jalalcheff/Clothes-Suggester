@@ -4,80 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6C33D3"
+    android:background="@color/background"
     tools:context=".ui.MainActivity">
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/app_bar"
-    android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:background="@drawable/app_bar"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    >
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-       android:layout_gravity="center"
-        android:text="what to wear"
-        />
 
-</androidx.appcompat.widget.Toolbar>
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="24dp"
-        android:drawableStart="@drawable/img"
-        android:textColor="@color/white"
-        android:textSize="48sp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginHorizontal="1dp"
+        android:background="@drawable/app_bar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/poppins_medium"
+            android:text="what to wear"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/brand"
+            android:textColor="@color/app_bar_text"
+            android:drawablePadding="8dp"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="176dp"
+            tools:layout_editor_absoluteY="35dp" />
+
+    </androidx.appcompat.widget.Toolbar>
     <TextView
         android:id="@+id/city_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/textView"
-        app:layout_constraintStart_toStartOf="@id/textView"
-        />
+        android:layout_marginTop="42dp"
+        android:textColor="@color/temp"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="36sp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/temp"
+        android:textSize="48sp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@id/city_name"
+        app:layout_constraintStart_toStartOf="@id/city_name"
+        app:layout_constraintTop_toBottomOf="@id/city_name" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="32sp"
         android:layout_marginBottom="8dp"
         android:text="o"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/temp"
+        android:textSize="32sp"
         app:layout_constraintBottom_toTopOf="@id/textView"
         app:layout_constraintStart_toEndOf="@id/textView"
         app:layout_constraintTop_toTopOf="@id/textView" />
+
     <com.google.android.material.imageview.ShapeableImageView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="56dp"
         android:src="@drawable/rain_man"
-        app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city_name" />
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
-    <androidx.appcompat.widget.LinearLayoutCompat
-      android:id="@+id/sheet"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        android:background="@drawable/raduis_bottom_sheet"
-        >
-        <include layout="@layout/bottom_sheet"/>
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/sheet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/raduis_bottom_sheet"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+            <include layout="@layout/bottom_sheet" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

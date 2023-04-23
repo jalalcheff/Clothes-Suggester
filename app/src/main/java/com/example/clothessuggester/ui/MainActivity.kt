@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), IMainView {
     }
 
     override fun onSuccessWeatherTemperature(temperature: Double) {
-        runOnUiThread { binding.textView.text = temperature.toString() }
+        runOnUiThread { binding.textView.text = temperature.toString().split(".")[0] }
     }
 
     override fun onFailureWeatherTemperature(e: IOException) {
